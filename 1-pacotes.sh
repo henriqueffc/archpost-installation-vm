@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Deletar a antiga pasta no /
+sudo rm -r /archpost-installation-vm
+
 # Reflector
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 sudo pacman -S --needed --noconfirm reflector rsync
@@ -46,6 +49,7 @@ sudo touch /var/log/syslog
 sudo mkdir ~/.config/autostart
 sudo mv apparmor-notify.desktop ~/.config/autostart
 sudo sed -i '34s/#//' /etc/apparmor/parser.conf
+sudo chown henriqueffc:henriqueffc ~/.config/autostart
 
 # Mlocate
 sudo pacman -S --needed mlocate
