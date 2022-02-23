@@ -1,12 +1,9 @@
 #!/bin/bash
 
-#Variável
-country=Brazil
-
 # Reflector
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 sudo pacman -S --needed --noconfirm reflector rsync
-sudo reflector -c $country -a 12 -p --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector -c Brazil -a 12 -p --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Syyu
 
 
@@ -26,10 +23,21 @@ sudo pacman -S --needed noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu tt
 sudo pacman -S --needed pipewire pipewire-alsa pipewire-jack wireplumber pipewire-pulse gst-plugin-pipewire libpulse pipewire-x11-bell xdg-desktop-portal
 
 # Habilitar os serviços
+sudo ufw enable
 sudo systemctl enable ufw.service
 
+# Fontes
+wget -P ~/Downloads https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+wget -P ~/Downloads https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+wget -P ~/Downloads https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+wget -P ~/Downloads https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+
+#Alias
+mv .bash_aliases ~/
+
 # Variáveis
-echo "export QT_STYLE_OVERRIDE=kvantum" >> ~/.profile 
+echo "export QT_STYLE_OVERRIDE=kvantum" >> ~/.profile
+echo "source ~/.bash_aliases" >> ~/.bashrc
 
 #Apparmor
 sudo pacman -S --needed apparmor python-notify2 python-psutil 
