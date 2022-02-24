@@ -28,6 +28,7 @@ sudo pacman -S --needed pipewire pipewire-alsa pipewire-jack wireplumber pipewir
 # Habilitar os serviços
 sudo ufw enable
 sudo systemctl enable ufw.service
+sudo systemctl enable systemd-boot-update
 
 # Fontes
 wget -P ~/Downloads -i urls.txt 
