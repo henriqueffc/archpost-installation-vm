@@ -7,7 +7,7 @@ sudo rm -r /archpost-installation-vm
 sudo pacman -Syu
 
 #Reflector
-echo -n "Voc\u00ea quer executar o reflector para atualizar o mirrorlist? (S) sim / (N) n\u00e3o "
+echo -n "Você quer executar o reflector para atualizar o mirrorlist? (S) sim / (N) não "
 read resposta
 case "$resposta" in
      s|S|"")
@@ -17,10 +17,10 @@ case "$resposta" in
          sudo pacman -Syyu
      ;;
      n|N)
-         echo "Continuando a instala\u00e7\u00e3o dos pacotes"
+         echo "Continuando a instalação dos pacotes"
      ;;
      *)
-         echo "Op\u00e7\u00e3o inv\u00e1lida"
+         echo "Opção inválida"
      ;;
 esac
 
@@ -59,7 +59,7 @@ echo "export QT_STYLE_OVERRIDE=kvantum" >> ~/.profile
 echo "source ~/.bash_aliases" >> ~/.bashrc
 
 # Apparmor
-echo -n "Voc\u00ea quer instalar o Apparmor? (S) sim / (N) n\u00e3o "
+echo -n "Você quer instalar o Apparmor? (S) sim / (N) não "
 read resposta
 case "$resposta" in
      s|S|"")
@@ -72,10 +72,10 @@ case "$resposta" in
         sudo chown henriqueffc:henriqueffc ~/.config/autostart
      ;;
      n|N)
-         echo "Continuando a instala\u00e7\u00e3o dos pacotes"
+         echo "Continuando a instalação dos pacotes"
      ;;
      *)
-         echo "Op\u00e7\u00e3o inv\u00e1lida"
+         echo "Opção inválida"
      ;;
 esac
 
