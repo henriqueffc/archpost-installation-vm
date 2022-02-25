@@ -12,12 +12,13 @@ echo -n "Você quer adicionar o remote Flathub Beta? (S) sim / (N) não "
 read resposta
 case "$resposta" in
      s|S|"")
-      flatpak remote-add flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+          flatpak remote-add flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+          echo "Fim da instalação"
      ;;
      n|N)
-         echo "Continuando a instalação dos pacotes"
+          echo "Fim da instalação"
      ;;
      *)
-         echo "Opção inválida"
+          echo "Opção inválida"
      ;;
 esac
