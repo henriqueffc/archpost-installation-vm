@@ -42,6 +42,9 @@ sed -i '243s/..//' /etc/nanorc
 # Swappiness
 mv 99-swappiness.conf /etc/sysctl.d/
 
-pacman -Sy --noconfirm --needed
+mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+mv mirrorlist /etc/pacman.d/
+
+pacman -Syy --noconfirm --needed
 
 printf "\e[1;32mFim! Escreva exit, pressione enter e reinicie com o comando reboot.\e[0m"

@@ -7,29 +7,6 @@ sudo rm -r /archpost-installation-vm
 sudo usermod -aG brlapi $USERNAME
 sudo usermod -aG wheel $USERNAME
 
-#Mirrorlist atual
-echo "Mirrorlist atual"
-cat /etc/pacman.d/mirrorlist
-
-#Reflector
-echo -n "Você quer executar o reflector para atualizar o mirrorlist? (S) sim / (N) não "
-read resposta
-case "$resposta" in
-     s|S|"")
-         sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-         sudo pacman -S --needed --noconfirm reflector rsync
-         sudo reflector -c Brazil -a 12 --sort rate --save /etc/pacman.d/mirrorlist
-         sudo pacman -Syyu
-     ;;
-     n|N)
-         echo "Continuando a instalação dos pacotes"
-     ;;
-     *)
-         echo "Opção inválida"
-     ;;
-esac
-
-echo -ne "
 -------------------------------------------------------------------------
                           Instalando os pacotes
 -------------------------------------------------------------------------
@@ -111,5 +88,32 @@ esac
 sudo pacman -S --needed mlocate
 sudo updatedb
 echo "  Mlocate habilitado"
+
+#Mirrorlist atual
+echo "Mirrorlist atual"
+cat /etc/pacman.d/mirrorlist
+
+#Reflector
+echo -n "
+Você quer executar o reflector para atualizar o mirrorlist? 
+Caso não tenha acontecido problemas na instalação dos pacotes não recomendamos a execução.  (S) sim / (N) não 
+"
+read resposta
+case "$resposta" in
+     s|S|"")
+         sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak2
+         sudo pacman -S --needed --noconfirm reflector rsync
+         sudo reflector -c Brazil -a 12 --sort rate --save /etc/pacman.d/mirrorlist
+         sudo pacman -Syyu
+     ;;
+     n|N)
+         echo "Continuando a instalação dos pacotes"
+     ;;
+     *)
+         echo "Opção inválida"
+     ;;
+esac
+
+echo -ne "
 
 printf "\e[1;32mFim! Caso tenha instalado o AppArmor acrescente as instruções do arquivo -paBoot.txt/linha 7- nos parâmetros do boot e depois reinicie o sistema. Se você não instalou o Apparmor apenas proceda com a reinicialização do sistema\e[0m"
