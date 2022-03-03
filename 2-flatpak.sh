@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo -ne "
+-------------------------------------------------------------------------
+                   Instalando os aplicativos Flatpaks
+-------------------------------------------------------------------------
+"
+
 # Flatpak Aplicativos
 flatpak install flathub com.github.rajsolai.textsnatcher -y
 flatpak install flathub io.github.wereturtle.ghostwriter -y
