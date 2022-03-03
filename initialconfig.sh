@@ -35,15 +35,36 @@ sed -i '93s/#//' /etc/pacman.conf
 sed -i '94s/#//' /etc/pacman.conf
 #sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf (outra forma para habilitar o multilib)
 
-# NANO
+# NANO - Line number e syntax-highlighting
 sed -i 's/# set linenumbers/\set linenumbers/' /etc/nanorc
 sed -i '243s/..//' /etc/nanorc
 
 # Swappiness
 mv 99-swappiness.conf /etc/sysctl.d/
 
-mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-mv mirrorlist /etc/pacman.d/
+#Mirrorlist
+echo -ne "
+-------------------------------------------------------------------------
+                        Mirrorlist - Brasil
+-------------------------------------------------------------------------
+"
+cat mirrorlist
+echo -n "Você quer alterar o mirrorlist do sistema de acordo com o exposto acima? (S) sim / (N) não "
+read resposta
+case "$resposta" in
+     s|S|"")
+          mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+          mv mirrorlist /etc/pacman.d/
+          echo "Fim da instalação"
+     ;;
+     n|N)
+          echo "Fim da instalação"
+     ;;
+     *)
+          echo "Opção inválida"
+     ;;
+esac
+
 
 pacman -Syy --noconfirm --needed
 
