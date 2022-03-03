@@ -7,9 +7,6 @@ sudo rm -r /archpost-installation-vm
 sudo usermod -aG brlapi $USERNAME
 sudo usermod -aG wheel $USERNAME
 
-#Refresh database
-sudo pacman -Syu
-
 #Mirrorlist atual
 echo "Mirrorlist atual"
 cat /etc/pacman.d/mirrorlist
