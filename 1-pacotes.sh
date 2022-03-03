@@ -7,13 +7,6 @@ sudo rm -r /archpost-installation-vm
 sudo usermod -aG brlapi $USERNAME
 sudo usermod -aG wheel $USERNAME
 
-#Localhost
-line=$(cat /etc/hostname)
-
-echo '127.0.0.1 localhost' >> /etc/hosts
-echo '::1       localhost' >> /etc/hosts
-echo "127.0.1.1 $line.localdomain $line" >> /etc/hosts
-
 #Refresh database
 sudo pacman -Syu
 

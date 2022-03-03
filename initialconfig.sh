@@ -7,9 +7,13 @@ locale-gen
 # Vconsole.conf (Já foi configurado pelo Archinstall)
 # echo "KEYMAP=br-abnt2" > /etc/vconsole.conf
 
-# Idioma e hostname
+# Idioma, hostname e localhost
 echo 'LANG=pt_BR.UTF-8' > /etc/locale.conf
 #echo "nome_do_Host" > /etc/hostname (já foi feito pelo Archinstall.)
+line=$(cat /etc/hostname)
+echo '127.0.0.1 localhost' >> /etc/hosts
+echo '::1       localhost' >> /etc/hosts
+echo "127.0.1.1 $line.localdomain $line" >> /etc/hosts
 
 
 # Visudo
