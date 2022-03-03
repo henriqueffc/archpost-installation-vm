@@ -8,9 +8,9 @@ sudo usermod -aG brlapi $USERNAME
 sudo usermod -aG wheel $USERNAME
 
 #Localhost
-sudo echo '127.0.0.1 localhost' >> /etc/hosts
-sudo echo '::1       localhost' >> /etc/hosts
-sudo echo "127.0.1.1 $HOST.localdomain $HOST" >> /etc/hosts
+#echo '127.0.0.1 localhost' >> /etc/hosts
+#echo '::1       localhost' >> /etc/hosts
+#echo "127.0.1.1 $HOST.localdomain $HOST" >> /etc/hosts
 
 #Refresh database
 sudo pacman -Syu
