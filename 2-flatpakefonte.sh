@@ -28,3 +28,16 @@ case "$resposta" in
           echo "Opção inválida"
      ;;
 esac
+
+
+echo -e "${AZUL}
+-------------------------------------------------------------------------
+                   Fonte do Terminal - MesloLGS NF 14
+-------------------------------------------------------------------------
+${FIM}"
+
+#Fonte do terminal
+font=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'")
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$font/ use-system-font false
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$font/ font 'MesloLGS NF 12'
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$font/ visible-name 'Padrão'
