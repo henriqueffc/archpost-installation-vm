@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#Cores dos avisos
+
+AZUL='\e[1;34m'
+VERDE='\e[1;32m'
+RED='\e[1;31m'
+LVERDE='\e[0;92m'
+FIM='\e[0m'
+
 #Deletar a antiga pasta no /
 sudo rm -r /archpost-installation-vm
 
@@ -7,11 +15,11 @@ sudo rm -r /archpost-installation-vm
 sudo usermod -aG brlapi $USERNAME
 sudo usermod -aG wheel $USERNAME
 
-echo -ne "
+echo -e "${AZUL}
 -------------------------------------------------------------------------
                           Instalando os pacotes
 -------------------------------------------------------------------------
-"
+${FIM}"
 
 # Pacotes
 # OS pacotes firefox git foram instalados durante a execução do script archinstall utilizando a opção de instalação de mais pacotes. 
@@ -29,24 +37,24 @@ sudo pacman -S --needed noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu tt
 sudo pacman -S --needed pipewire pipewire-alsa pipewire-jack wireplumber pipewire-pulse gst-plugin-pipewire libpulse pipewire-x11-bell xdg-desktop-portal
 
 
-echo -ne "
+echo -e "${AZUL}
 -------------------------------------------------------------------------
                       Habilitando os serviços
 -------------------------------------------------------------------------
-"
+${FIM}"
 
 # Habilitar os serviços
 sudo ufw enable
 sudo systemctl enable ufw.service
-echo "  ufw.service habilitado"
+echo -e "  ${AZUL}ufw.service habilitado${FIM}"
 sudo systemctl enable systemd-boot-update
-echo "  systemd-boot-update habilitado"
+echo -e "  ${AZUL}systemd-boot-update habilitado${FIM}"
 
-echo -ne "
+echo -e "${AZUL}
 -------------------------------------------------------------------------
                       Restante das configurações
 -------------------------------------------------------------------------
-"
+${FIM}"
 
 #Fontes e outros
 wget -P ~/Downloads -i $HOME/archpost-installation-vm/urls/urls.txt 
@@ -63,8 +71,9 @@ mv $HOME/archpost-installation-vm/modelo/arquivo.txt ~/Modelos
 echo "export QT_STYLE_OVERRIDE=kvantum" >> ~/.profile
 echo "source ~/.bash_aliases" >> ~/.bashrc
 
-# Apparmor
-echo -n "Você quer instalar o Apparmor? (S) sim / (N) não "
+#Apparmor
+while :;  do
+echo -ne "${VERDE}Você quer instalar o Apparmor?${FIM} ${LVERDE}(S) sim / (N) não ${FIM}"
 read resposta
 case "$resposta" in
      s|S|"")
@@ -72,47 +81,44 @@ case "$resposta" in
         sudo systemctl enable apparmor.service
         sudo touch /var/log/syslog
         mkdir ~/.config/autostart
-        mv $HOME/archpost-installation-vm/apparmor/apparmor-notify.desktop ~/.config/autostart
+        mv $HOME/archpost-installation/apparmor/apparmor-notify.desktop ~/.config/autostart
         sudo sed -i '34s/#//' /etc/apparmor/parser.conf
-        sudo chown $USER:$USER ~/.config/autostart
-     ;;
+        sudo chown $USER:$USER ~/.config/autostart; break;;
      n|N)
-         echo "Continuando a instalação dos pacotes"
-     ;;
+         echo -e "${AZUL}Finalizando a instalação${FIM}"; break;;
      *)
-         echo "Opção inválida"
-     ;;
+         echo -e "${RED}Opção inválida${FIM}";;
 esac
+done
 
 
 # Mlocate - necessário para a busca no Ulauncher
 sudo pacman -S --needed mlocate
 sudo updatedb
-echo "  Mlocate habilitado"
+echo -e "  ${AZUL}Mlocate habilitado${FIM}"
 
 #Mirrorlist atual
-echo "Mirrorlist atual"
+echo -e "${AZUL}Mirrorlist atual${FIM}"
 cat /etc/pacman.d/mirrorlist
 
 #Reflector
-echo -n "
+while :;  do
+echo -ne "${AZUL}
 Você quer executar o reflector para atualizar o mirrorlist?
-Caso não tenha acontecido problemas na instalação dos pacotes não recomendamos a execução.  (S) sim / (N) não 
-"
+Caso não tenha acontecido problemas na instalação dos pacotes não recomendamos a execução.${FIM}  ${LVERDE}(S) sim / (N) não 
+${FIM}"
 read resposta
 case "$resposta" in
      s|S|"")
          sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak2
          sudo pacman -S --needed --noconfirm reflector rsync
          sudo reflector -c Brazil -a 12 --sort rate --save /etc/pacman.d/mirrorlist
-         sudo pacman -Syyu
-     ;;
+         sudo pacman -Syyu; break;;
      n|N)
-         echo "Fim da instalação"
-     ;;
+         echo -e "${AZUL}Fim da instalação${FIM}"; break;;
      *)
-         echo "Opção inválida"
-     ;;
+         echo -e "${RED}Opção inválida. Responda a pergunta.${FIM}";;
 esac
+done
 
-printf "\e[1;32mFim! Caso tenha instalado o AppArmor acrescente as instruções do arquivo -paBoot.txt/linha 7- nos parâmetros do boot e depois reinicie o sistema. Se você não instalou o Apparmor apenas proceda com a reinicialização do sistema\e[0m"
+printf "${VERDE}Fim! Caso tenha instalado o AppArmor acrescente as instruções do arquivo -paBoot.txt/linha 7- nos parâmetros do boot e depois reinicie o sistema. Se você não instalou o Apparmor apenas proceda com a reinicialização do sistema${FIM}\n"
