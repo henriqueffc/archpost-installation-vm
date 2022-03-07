@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#Cores dos avisos
+
+AZUL='\e[1;34m'
+VERDE='\e[1;32m'
+RED='\e[1;31m'
+LVERDE='\e[0;92m'
+FIM='\e[0m'
+
 # Locale.gen
 sed -i 's/#pt_BR.UTF-8 UTF-8/\pt_BR.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
@@ -43,29 +51,27 @@ sed -i '243s/..//' /etc/nanorc
 mv 99-swappiness.conf /etc/sysctl.d/
 
 #Mirrorlist
-echo -ne "
+echo -e "${AZUL}
 -------------------------------------------------------------------------
                         Mirrorlist - Brasil
 -------------------------------------------------------------------------
-"
+${FIM}"
+while :;  do
 cat mirrorlist
-echo -n "Você quer alterar o mirrorlist do sistema de acordo com o exposto acima? (S) sim / (N) não "
+echo -ne "${VERDE}Você quer alterar o mirrorlist do sistema de acordo com o exposto acima? (S) sim / (N) não ${FIM}"
 read resposta
 case "$resposta" in
      s|S|"")
           mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
           mv mirrorlist /etc/pacman.d/
-          echo "Fim da instalação"
-     ;;
+          echo -e "${AZUL}Fim da instalação${FIM}"; break;;
      n|N)
-          echo "Fim da instalação"
-     ;;
+          echo -e "${AZUL}Fim da instalação${FIM}"; break;;
      *)
-          echo "Opção inválida"
-     ;;
+          echo -e "${RED}Opção inválida${FIM}";;
 esac
-
+done
 
 pacman -Syy --noconfirm --needed
 
-printf "\e[1;32mFim! Escreva exit, pressione enter e reinicie com o comando reboot.\e[0m"
+printf "${VERDE}Fim! Escreva exit, pressione enter e reinicie com o comando reboot.${FIM}\n"
