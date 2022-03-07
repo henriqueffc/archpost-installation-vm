@@ -1,10 +1,16 @@
 #!/bin/bash
 
-echo -ne "
+#Cores dos avisos
+
+AZUL='\e[1;34m'
+VERDE='\e[1;32m'
+FIM='\e[0m'
+
+echo -e "${AZUL}
 -------------------------------------------------------------------------
                     Instalando o YAY
 -------------------------------------------------------------------------
-"
+${FIM}"
 
 # YAY 
 sudo pacman -S --needed git base-devel go wget
@@ -12,13 +18,13 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
-echo -ne "
+echo -e "${AZUL}
 -------------------------------------------------------------------------
                     Instalando os pacotes AUR
 -------------------------------------------------------------------------
-"
+${FIM}"
 
 # Pacotes AUR
 yay -S appimagelauncher ulauncher downgrade inxi ttf-ms-fonts qgnomeplatform
 
-printf "\e[1;32mFim! Reinicie o sistema.\e[0m"
+printf "${VERDE}Fim! Reinicie o sistema.${FIM}\n"
