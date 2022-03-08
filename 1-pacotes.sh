@@ -71,6 +71,48 @@ mv $HOME/archpost-installation-vm/modelo/arquivo.txt ~/Modelos
 echo "export QT_STYLE_OVERRIDE=kvantum" >> ~/.profile
 echo "source ~/.bash_aliases" >> ~/.bashrc
 
+echo -e "${AZUL}Alterando o tema, os ícones e os atalhos do sistema em 1${FIM}"
+sleep 1
+echo -e "${AZUL}Alterando o tema, os ícones e os sistema em 2${FIM}"
+sleep 1
+echo -e "${AZUL}Alterando o tema, os ícones e os sistema em 3${FIM}"
+sleep 1
+
+#Tema e ícones do Gnome
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+
+
+#Atalhos do teclado (abnt2 com teclado numérico)
+# abaixar o volume - Ctrl + - teclado numérico
+gsettings set org.gnome.settings-daemon.plugins.media-keys volume-down "['<Primary>KP_Subtract']" 
+# aumentar o volume - Ctrl + + teclado numérico
+gsettings set org.gnome.settings-daemon.plugins.media-keys volume-up "['<Primary>KP_Add']" 
+#reproduzir ou pausar reprodução de mídia - Crtl + * teclado numérico
+gsettings set org.gnome.settings-daemon.plugins.media-keys play "['<Primary>KP_Multiply']" 
+#mudar para a próxima faixa - Ctrl + / teclado numérico
+gsettings set org.gnome.settings-daemon.plugins.media-keys next "['<Primary>KP_Divide']" 
+# abrir navegador - Super + B
+gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>b']" 
+#abrir o Files na home - Super + F
+gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>f']" 
+#fechar a janela - Super + Q
+gsettings set org.gnome.desktop.wm.keybindings close "['<Super>q']" 
+
+# Atalho personalizado para lançar o Terminal - Super + T
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "Terminal"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "gnome-terminal"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>t"
+
+
+# Atalho personalizado para lançar o Ulauncher (Wayland) - Super + \
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name "Ulauncher"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command "ulauncher-toggle"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding "<Super>backslash"
+
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']" 
+
+
 #Apparmor
 while :;  do
 echo -ne "${VERDE}Você quer instalar o Apparmor?${FIM} ${LVERDE}(S) sim / (N) não ${FIM}"

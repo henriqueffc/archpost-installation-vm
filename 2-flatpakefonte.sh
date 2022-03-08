@@ -20,6 +20,7 @@ flatpak install flathub io.github.wereturtle.ghostwriter -y
 flatpak install flathub com.github.tchx84.Flatseal -y
 flatpak install flathub com.mattjakeman.ExtensionManager -y
 flatpak install flathub org.gtk.Gtk3theme.Adwaita-dark -y
+flatpak install flathub com.github.alexkdeveloper.dwxmlcreator -y
 
 # Flatpak Remote-Beta
 
@@ -43,6 +44,13 @@ echo -e "${AZUL}
                    Fonte do Terminal - MesloLGS NF 14
 -------------------------------------------------------------------------
 ${FIM}"
+
+echo -e "${AZUL}Alterando a fonte do terminal em 1${FIM}"
+sleep 1
+echo -e "${AZUL}Alterando a fonte do terminal em 2${FIM}"
+sleep 1
+echo -e "${AZUL}Alterando a fonte do terminal em 3${FIM}"
+sleep 1
 
 #Fonte do terminal
 font=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'")
