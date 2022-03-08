@@ -113,7 +113,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']" 
 
 #Wallpaper dinâmico
-sudo cp $HOME/archpost-installation/wallpapers/*.* /usr/share/backgrounds/gnome
+sudo cp $HOME/archpost-installation-vm/wallpapers/*.* /usr/share/backgrounds/gnome
 gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/gnome/dynamic_wallpaper.xml
 
 #Apparmor
