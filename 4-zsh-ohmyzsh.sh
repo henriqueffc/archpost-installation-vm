@@ -21,6 +21,7 @@ then
 	git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 	sed -i 's/plugins=(git)/\plugins=(git zsh-autosuggestions zsh-syntax-highlighting colored-man-pages history-substring-search)/' ~/.zshrc
 	sed -i 's|robbyrussell|powerlevel10k/powerlevel10k|' ~/.zshrc
+	sed -i "1 r./dracula.txt" ~/.zshrc 
 	linenumber=$(grep -nr "source" ~/.zshrc | gawk '{print $1}' FS=":")
 	linenumber=$((linenumber-1))
 	sed -i "${linenumber}i fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src" ~/.zshrc
