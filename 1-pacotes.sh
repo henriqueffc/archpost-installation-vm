@@ -60,7 +60,6 @@ ${FIM}"
 
 #Fontes e outros
 wget -i ./urls/urls.txt
-sudo mkdir /usr/share/fonts/TTF
 sudo mv *.ttf /usr/share/fonts/TTF
 sudo fc-cache -fv
 
