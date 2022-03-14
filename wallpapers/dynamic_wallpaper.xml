@@ -2,63 +2,63 @@
   <starttime>
     <year>2022</year>
     <month>03</month>
-    <day>08</day>
+    <day>14</day>
     <hour>00</hour>
     <minute>00</minute>
     <second>00</second>
   </starttime>
 <static>
-    <duration>3595.0</duration>
-    <file>/usr/share/backgrounds/gnome/wallhaven-76g2g3.png</file>
+    <duration>1196.0</duration>
+    <file>/home/user1/Imagens/Wallpaper/1.jpg</file>
   </static>
   <transition>
-    <duration>5.0</duration>
-    <from>/usr/share/backgrounds/gnome/wallhaven-76g2g3.png</from>
-<to>/usr/share/backgrounds/gnome/wallhaven-137ozw.png</to>
+    <duration>4.0</duration>
+    <from>/home/user1/Imagens/Wallpaper/1.jpg</from>
+<to>/home/user1/Imagens/Wallpaper/2.png</to>
   </transition>
   <static>
-    <duration>3595.0</duration>
-    <file>/usr/share/backgrounds/gnome/wallhaven-137ozw.png</file>
+    <duration>1196.0</duration>
+    <file>/home/user1/Imagens/Wallpaper/2.png</file>
   </static>
   <transition>
-    <duration>5.0</duration>
-    <from>/usr/share/backgrounds/gnome/wallhaven-137ozw.png</from>
-<to>/usr/share/backgrounds/gnome/wallhaven-rd71yq.png</to>
+    <duration>4.0</duration>
+    <from>/home/user1/Imagens/Wallpaper/2.png</from>
+<to>/home/user1/Imagens/Wallpaper/3.png</to>
   </transition>
   <static>
-    <duration>3595.0</duration>
-    <file>/usr/share/backgrounds/gnome/wallhaven-rd71yq.png</file>
+    <duration>1196.0</duration>
+    <file>/home/user1/Imagens/Wallpaper/3.png</file>
   </static>
   <transition>
-    <duration>5.0</duration>
-    <from>/usr/share/backgrounds/gnome/wallhaven-rd71yq.png</from>
-<to>/usr/share/backgrounds/gnome/wallhaven-y8rvmx.png</to>
+    <duration>4.0</duration>
+    <from>/home/user1/Imagens/Wallpaper/3.png</from>
+<to>/home/user1/Imagens/Wallpaper/4.png</to>
   </transition>
   <static>
-    <duration>3595.0</duration>
-    <file>/usr/share/backgrounds/gnome/wallhaven-y8rvmx.png</file>
+    <duration>1196.0</duration>
+    <file>/home/user1/Imagens/Wallpaper/4.png</file>
   </static>
   <transition>
-    <duration>5.0</duration>
-    <from>/usr/share/backgrounds/gnome/wallhaven-y8rvmx.png</from>
-<to>/usr/share/backgrounds/gnome/wallhaven-42m73g.jpg</to>
+    <duration>4.0</duration>
+    <from>/home/user1/Imagens/Wallpaper/4.png</from>
+<to>/home/user1/Imagens/Wallpaper/5.png</to>
   </transition>
   <static>
-    <duration>3595.0</duration>
-    <file>/usr/share/backgrounds/gnome/wallhaven-42m73g.jpg</file>
+    <duration>1196.0</duration>
+    <file>/home/user1/Imagens/Wallpaper/5.png</file>
   </static>
   <transition>
-    <duration>5.0</duration>
-    <from>/usr/share/backgrounds/gnome/wallhaven-42m73g.jpg</from>
-<to>/usr/share/backgrounds/gnome/wallhaven-72qr3e.png</to>
+    <duration>4.0</duration>
+    <from>/home/user1/Imagens/Wallpaper/5.png</from>
+<to>/home/user1/Imagens/Wallpaper/6.png</to>
   </transition>
   <static>
-    <duration>3595.0</duration>
-    <file>/usr/share/backgrounds/gnome/wallhaven-72qr3e.png</file>
+    <duration>1196.0</duration>
+    <file>/home/user1/Imagens/Wallpaper/6.png</file>
   </static>
   <transition>
-    <duration>5.0</duration>
-    <from>/usr/share/backgrounds/gnome/wallhaven-72qr3e.png</from>
-<to>/usr/share/backgrounds/gnome/wallhaven-76g2g3.png</to>
+    <duration>4.0</duration>
+    <from>/home/user1/Imagens/Wallpaper/6.png</from>
+<to>/home/user1/Imagens/Wallpaper/1.jpg</to>
   </transition>
 </background>

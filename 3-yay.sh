@@ -22,6 +22,7 @@ sudo pacman -S --needed git base-devel go wget
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
+cd ..
 
 echo -e "${AZUL}
 -------------------------------------------------------------------------
@@ -30,6 +31,6 @@ echo -e "${AZUL}
 ${FIM}"
 
 # Pacotes AUR
-yay -S appimagelauncher ulauncher downgrade inxi ttf-ms-fonts qgnomeplatform
+yay --needed -S - < ./pacotes/aur.txt
 
 printf "${VERDE}Fim! Reinicie o sistema.${FIM}\n"

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Henrique Custódio
+# https://github.com/henriqueffc
+# 
+# AVISO: Execute o script por sua conta e risco.
+
 #Cores dos avisos
 
 AZUL='\e[1;34m'
@@ -46,7 +51,7 @@ sed -i 's/# set linenumbers/\set linenumbers/' /etc/nanorc
 sed -i '243s/..//' /etc/nanorc
 
 # Swappiness
-mv 99-swappiness.conf /etc/sysctl.d/
+mv ./swappiness/99-swappiness.conf /etc/sysctl.d/
 
 #Mirrorlist
 echo -e "${AZUL}
@@ -55,13 +60,13 @@ echo -e "${AZUL}
 -------------------------------------------------------------------------
 ${FIM}"
 while :;  do
-cat mirrorlist
-echo -ne "${VERDE}Você quer alterar o mirrorlist do sistema de acordo com o exposto acima? (S) sim / (N) não ${FIM}"
-read resposta
+     cat mirrorlistbr/mirrorlist
+     echo -ne "${VERDE}Você quer alterar o mirrorlist do sistema de acordo com o exposto acima? (S) sim / (N) não ${FIM}"
+     read resposta
 case "$resposta" in
      s|S|"")
           mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-          mv mirrorlist /etc/pacman.d/
+          mv ./mirrorlistbr/mirrorlist /etc/pacman.d/
           echo -e "${AZUL}Fim da instalação${FIM}"; break;;
      n|N)
           echo -e "${AZUL}Fim da instalação${FIM}"; break;;

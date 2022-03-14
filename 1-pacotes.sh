@@ -26,20 +26,17 @@ echo -e "${AZUL}
 -------------------------------------------------------------------------
 ${FIM}"
 
-# Pacotes
-# OS pacotes firefox git foram instalados durante a execução do script archinstall utilizando a opção de instalação de mais pacotes. 
-
-# Audio
-sudo pacman -S --needed vlc ffmpeg gst-plugins-ugly gst-plugins-good gst-plugins-base gst-plugins-bad gst-libav gstreamer-vaapi gstreamer a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore
+# Áudio
+sudo pacman --needed -S - < ./pacotes/pkg-audio.txt 
 
 # Outros
-sudo pacman -S --needed flatpak zsh materia-gtk-theme ufw gufw aria2 bash-completion reflector rsync man-db man-pages texinfo curl cmatrix wmctrl pacman-contrib dialog unrar zip unzip p7zip okular discount ebook-tools djvulibre unrar libzip kdegraphics-mobipocket kvantum-qt5 qt6-wayland qt5-wayland xorg-xkill libappindicator-gtk3 gparted exa bat alacarte coreutils progress neofetch ntfs-3g xorg-xdpyinfo gnome-icon-theme-symbolic papirus-icon-theme
+sudo pacman --needed -S - < ./pacotes/pkg.txt 
 
 # Fontes
-sudo pacman -S --needed noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu ttf-liberation xorg-fonts-type1 xorg-fonts-misc ttf-bitstream-vera ttf-opensans terminus-font ttf-roboto ttf-roboto-mono xorg-fonts-100dpi 
+sudo pacman --needed -S - < ./pacotes/fontes.txt 
 
 # Pipeware
-sudo pacman -S --needed pipewire pipewire-alsa pipewire-jack wireplumber pipewire-pulse gst-plugin-pipewire libpulse pipewire-x11-bell xdg-desktop-portal
+sudo pacman --needed -S - < ./pacotes/pipeware.txt 
 
 
 echo -e "${AZUL}
@@ -73,7 +70,6 @@ mv ./aliases/.bash_aliases ~/
 mv ./modelo/arquivo.txt ~/Modelos
 
 # Variáveis
-echo "export QT_STYLE_OVERRIDE=kvantum" >> ~/.profile
 echo "source ~/.bash_aliases" >> ~/.bashrc
 
 echo -e "${AZUL}Alterando o tema, os ícones, o wallpaper e os atalhos do sistema em 1${FIM}" && sleep 1;
@@ -116,13 +112,16 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']" 
 
 #Wallpaper dinâmico
-sudo cp ./wallpapers/*.* /usr/share/backgrounds/gnome
-gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/gnome/dynamic_wallpaper.xml
+mkdir $HOME/Imagens/Wallpaper
+sudo cp ./wallpapers/*.* ~/Imagens/Wallpaper
+sed -i 's|/home/user1|'$HOME'|g' ~/Imagens/Wallpaper/dynamic_wallpaper.xml
+dir=$(echo $HOME)
+gsettings set org.gnome.desktop.background picture-uri file://$dir/Imagens/Wallpaper/dynamic_wallpaper.xml
 
 #Apparmor
 while :;  do
-echo -ne "${VERDE}Você quer instalar o Apparmor?${FIM} ${LVERDE}(S) sim / (N) não ${FIM}"
-read resposta
+    echo -ne "${VERDE}Você quer instalar o Apparmor?${FIM} ${LVERDE}(S) sim / (N) não ${FIM}"
+    read resposta
 case "$resposta" in
      s|S|"")
         sudo pacman -S --needed apparmor python-notify2 python-psutil 
@@ -130,12 +129,12 @@ case "$resposta" in
         sudo touch /var/log/syslog
         mkdir ~/.config/autostart
         mv ./apparmor/apparmor-notify.desktop ~/.config/autostart
-        sudo sed -i '34s/#//' /etc/apparmor/parser.conf
+        sudo sed -i '/#write-cache/c\write-cache' /etc/apparmor/parser.conf
         sudo chown $USER:$USER ~/.config/autostart; break;;
      n|N)
-         echo -e "${AZUL}Finalizando a instalação${FIM}"; break;;
+        echo -e "${AZUL}Finalizando a instalação${FIM}"; break;;
      *)
-         echo -e "${RED}Opção inválida${FIM}";;
+        echo -e "${RED}Opção inválida${FIM}";;
 esac
 done
 
@@ -151,21 +150,21 @@ cat /etc/pacman.d/mirrorlist
 
 #Reflector
 while :;  do
-echo -ne "${AZUL}
+    echo -ne "${AZUL}
 Você quer executar o reflector para atualizar o mirrorlist?
 Caso não tenha acontecido problemas na instalação dos pacotes não recomendamos a execução.${FIM}  ${LVERDE}(S) sim / (N) não 
 ${FIM}"
-read resposta
+    read resposta
 case "$resposta" in
      s|S|"")
-         sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak2
-         sudo pacman -S --needed --noconfirm reflector rsync
-         sudo reflector -c Brazil -a 12 --sort rate --save /etc/pacman.d/mirrorlist
-         sudo pacman -Syyu; break;;
+        sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak2
+        sudo pacman -S --needed --noconfirm reflector rsync
+        sudo reflector -c Brazil -a 12 --sort rate --save /etc/pacman.d/mirrorlist
+        sudo pacman -Syyu; break;;
      n|N)
-         echo -e "${AZUL}Fim da instalação${FIM}"; break;;
+        echo -e "${AZUL}Fim da instalação${FIM}"; break;;
      *)
-         echo -e "${RED}Opção inválida. Responda a pergunta.${FIM}";;
+        echo -e "${RED}Opção inválida. Responda a pergunta.${FIM}";;
 esac
 done
 

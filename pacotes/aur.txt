@@ -1,0 +1,6 @@
+appimagelauncher
+downgrade
+inxi
+qgnomeplatform
+ttf-ms-fonts
+ulauncher
