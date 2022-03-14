@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Henrique Custódio
+# https://github.com/henriqueffc
+# 
+# AVISO: Execute o script por sua conta e risco.
+
 #Cores dos avisos
 
 AZUL='\e[1;34m'
@@ -57,15 +62,15 @@ echo -e "${AZUL}
 ${FIM}"
 
 #Fontes e outros
-wget -P ~/Downloads -i $HOME/archpost-installation-vm/urls/urls.txt 
-sudo mv ~/Downloads/*.ttf /usr/share/fonts/TTF
+wget -i ./urls/urls.txt 
+sudo mv *.ttf /usr/share/fonts/TTF
 sudo fc-cache -fv
 
 #Alias
-mv $HOME/archpost-installation-vm/aliases/.bash_aliases ~/
+mv ./aliases/.bash_aliases ~/
 
 #Modelos de arquivos para o Files
-mv $HOME/archpost-installation-vm/modelo/arquivo.txt ~/Modelos
+mv ./modelo/arquivo.txt ~/Modelos
 
 # Variáveis
 echo "export QT_STYLE_OVERRIDE=kvantum" >> ~/.profile
@@ -111,7 +116,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']" 
 
 #Wallpaper dinâmico
-sudo cp $HOME/archpost-installation-vm/wallpapers/*.* /usr/share/backgrounds/gnome
+sudo cp ./wallpapers/*.* /usr/share/backgrounds/gnome
 gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/gnome/dynamic_wallpaper.xml
 
 #Apparmor
@@ -124,7 +129,7 @@ case "$resposta" in
         sudo systemctl enable apparmor.service
         sudo touch /var/log/syslog
         mkdir ~/.config/autostart
-        mv $HOME/archpost-installation/apparmor/apparmor-notify.desktop ~/.config/autostart
+        mv ./apparmor/apparmor-notify.desktop ~/.config/autostart
         sudo sed -i '34s/#//' /etc/apparmor/parser.conf
         sudo chown $USER:$USER ~/.config/autostart; break;;
      n|N)
