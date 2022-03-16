@@ -2,7 +2,7 @@
 
 # Henrique Custódio
 # https://github.com/henriqueffc
-# 
+#
 # AVISO: Execute o script por sua conta e risco.
 
 #Cores dos avisos
@@ -21,18 +21,17 @@ locale-gen
 # echo "KEYMAP=br-abnt2" > /etc/vconsole.conf
 
 # Idioma, hostname e localhost
-echo 'LANG=pt_BR.UTF-8' > /etc/locale.conf
+echo 'LANG=pt_BR.UTF-8' >/etc/locale.conf
 #echo "nome_do_Host" > /etc/hostname (já foi feito pelo Archinstall.)
 line=$(cat /etc/hostname)
-echo '127.0.0.1 localhost' >> /etc/hosts
-echo '::1       localhost' >> /etc/hosts
-echo "127.0.1.1 $line.localdomain $line" >> /etc/hosts
-
+echo '127.0.0.1 localhost' >>/etc/hosts
+echo '::1       localhost' >>/etc/hosts
+echo "127.0.1.1 $line.localdomain $line" >>/etc/hosts
 
 # Visudo
 sed -i '/# %wheel ALL=(ALL:ALL) ALL/c\%wheel ALL=(ALL:ALL) ALL' /etc/sudoers
-echo '# Defaults specification' >> /etc/sudoers
-echo 'Defaults editor=/usr/bin/nano' >> /etc/sudoers
+echo '# Defaults specification' >>/etc/sudoers
+echo 'Defaults editor=/usr/bin/nano' >>/etc/sudoers
 
 # Caso queira o vim ao invés do nano, comente (#) a linha acima e descomente a linha abaixo.
 # echo "Defaults editor=/usr/bin/vim" >> /etc/sudoers
@@ -60,20 +59,25 @@ echo -e "${AZUL}
                         Mirrorlist - Brasil
 -------------------------------------------------------------------------
 ${FIM}"
-while :;  do
+while :; do
      cat mirrorlistbr/mirrorlist
      echo -ne "${VERDE}Você quer alterar o mirrorlist do sistema de acordo com o exposto acima? (S) sim / (N) não ${FIM}"
      read resposta
-case "$resposta" in
-     s|S|"")
+     case "$resposta" in
+     s | S | "")
           mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
           mv ./mirrorlistbr/mirrorlist /etc/pacman.d/
-          echo -e "${AZUL}Fim da instalação${FIM}"; break;;
-     n|N)
-          echo -e "${AZUL}Fim da instalação${FIM}"; break;;
+          echo -e "${AZUL}Fim da instalação${FIM}"
+          break
+          ;;
+     n | N)
+          echo -e "${AZUL}Fim da instalação${FIM}"
+          break
+          ;;
      *)
-          echo -e "${RED}Opção inválida${FIM}";;
-esac
+          echo -e "${RED}Opção inválida${FIM}"
+          ;;
+     esac
 done
 
 pacman -Syy --noconfirm --needed

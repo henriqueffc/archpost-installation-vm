@@ -2,7 +2,7 @@
 
 # Henrique Custódio
 # https://github.com/henriqueffc
-# 
+#
 # AVISO: Execute o script por sua conta e risco.
 
 #Cores dos avisos
@@ -17,7 +17,7 @@ echo -e "${AZUL}
 -------------------------------------------------------------------------
 ${FIM}"
 
-# YAY 
+# YAY
 sudo pacman -S --needed git base-devel go wget
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -31,6 +31,6 @@ echo -e "${AZUL}
 ${FIM}"
 
 # Pacotes AUR
-yay --needed -S - < ./pacotes/aur.txt
+yay --needed -S - <./pacotes/aur.txt
 
 printf "${VERDE}Fim! Reinicie o sistema.${FIM}\n"
