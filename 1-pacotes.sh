@@ -17,8 +17,8 @@ FIM='\e[0m'
 sudo rm -r /archpost-installation-vm
 
 # Grupos
-sudo usermod -aG brlapi $USERNAME
-sudo usermod -aG wheel $USERNAME
+sudo usermod -aG brlapi "$USERNAME"
+sudo usermod -aG wheel "$USERNAME"
 
 echo -e "${AZUL}
 -------------------------------------------------------------------------
@@ -108,16 +108,16 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
 
 #Wallpaper dinâmico
-mkdir $HOME/Imagens/Wallpaper
+mkdir "$HOME"/Imagens/Wallpaper
 sudo cp ./wallpapers/*.* ~/Imagens/Wallpaper
 sed -i 's|/home/user1|'$HOME'|g' ~/Imagens/Wallpaper/dynamic_wallpaper.xml
-dir=$(echo $HOME)
+dir=$HOME
 gsettings set org.gnome.desktop.background picture-uri file://$dir/Imagens/Wallpaper/dynamic_wallpaper.xml
 
 #Apparmor
 while :; do
    echo -ne "${VERDE}Você quer instalar o Apparmor?${FIM} ${LVERDE}(S) sim / (N) não ${FIM}"
-   read resposta
+   read -r resposta
    case "$resposta" in
    s | S | "")
       sudo pacman -S --needed apparmor python-notify2 python-psutil
@@ -154,7 +154,7 @@ while :; do
 Você quer executar o reflector para atualizar o mirrorlist?
 Caso não tenha acontecido problemas na instalação dos pacotes não recomendamos a execução.${FIM}  ${LVERDE}(S) sim / (N) não 
 ${FIM}"
-   read resposta
+   read -r resposta
    case "$resposta" in
    s | S | "")
       sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak2

@@ -61,8 +61,8 @@ echo -e "${AZUL}
 ${FIM}"
 while :; do
      cat mirrorlistbr/mirrorlist
-     echo -ne "${VERDE}Você quer alterar o mirrorlist do sistema de acordo com o exposto acima? (S) sim / (N) não ${FIM}"
-     read resposta
+     echo -ne "${VERDE}Você quer alterar o mirrorlist do sistema de acordo com o exposto acima?${FIM} ${LVERDE}(S) sim / (N) não ${FIM}"
+     read -r resposta
      case "$resposta" in
      s | S | "")
           mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
