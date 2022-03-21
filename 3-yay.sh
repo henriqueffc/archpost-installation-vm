@@ -9,13 +9,11 @@
 
 AZUL='\e[1;34m'
 VERDE='\e[1;32m'
-FIM='\e[0m'
 
-echo -e "${AZUL}
+echo -e "$AZUL 
 -------------------------------------------------------------------------
                     Instalando o YAY
--------------------------------------------------------------------------
-${FIM}"
+-------------------------------------------------------------------------"
 
 # YAY
 sudo pacman -S --needed git base-devel go wget
@@ -24,13 +22,12 @@ cd yay
 makepkg -si
 cd ..
 
-echo -e "${AZUL}
+echo -e "$AZUL 
 -------------------------------------------------------------------------
                     Instalando os pacotes AUR
--------------------------------------------------------------------------
-${FIM}"
+-------------------------------------------------------------------------"
 
 # Pacotes AUR
 yay --needed -S - <./pacotes/aur.txt
 
-printf "${VERDE}Fim! Reinicie o sistema.${FIM}\n"
+printf "%s $VERDE Fim! Reinicie o sistema.\n"

@@ -11,7 +11,6 @@ AZUL='\e[1;34m'
 VERDE='\e[1;32m'
 RED='\e[1;31m'
 LVERDE='\e[0;92m'
-FIM='\e[0m'
 
 #Deletar a antiga pasta no /
 sudo rm -r /archpost-installation-vm
@@ -20,11 +19,10 @@ sudo rm -r /archpost-installation-vm
 sudo usermod -aG brlapi "$USERNAME"
 sudo usermod -aG wheel "$USERNAME"
 
-echo -e "${AZUL}
+echo -e "$AZUL 
 -------------------------------------------------------------------------
                           Instalando os pacotes
--------------------------------------------------------------------------
-${FIM}"
+-------------------------------------------------------------------------"
 
 # Áudio
 sudo pacman --needed -S - <./pacotes/pkg-audio.txt
@@ -38,24 +36,22 @@ sudo pacman --needed -S - <./pacotes/fontes.txt
 # Pipeware
 sudo pacman --needed -S - <./pacotes/pipeware.txt
 
-echo -e "${AZUL}
+echo -e "$AZUL
 -------------------------------------------------------------------------
                       Habilitando os serviços
--------------------------------------------------------------------------
-${FIM}"
+-------------------------------------------------------------------------"
 
 # Habilitar os serviços
 sudo ufw enable
 sudo systemctl enable ufw.service
-echo -e "  ${AZUL}ufw.service habilitado${FIM}"
+echo -e "  $AZUL ufw.service habilitado"
 sudo systemctl enable systemd-boot-update
-echo -e "  ${AZUL}systemd-boot-update habilitado${FIM}"
+echo -e "  $AZUL systemd-boot-update habilitado"
 
-echo -e "${AZUL}
+echo -e "$AZUL
 -------------------------------------------------------------------------
                       Restante das configurações
--------------------------------------------------------------------------
-${FIM}"
+-------------------------------------------------------------------------"
 
 #Fontes e outros
 wget -i ./urls/urls.txt
@@ -86,9 +82,9 @@ sudo journalctl --vacuum-time=2weeks
 # Variáveis
 echo "source ~/.bash_aliases" >>~/.bashrc
 
-echo -e "${AZUL}Alterando o tema, os ícones, o wallpaper e os atalhos do sistema em 1${FIM}" && sleep 1
-echo -e "${AZUL}Alterando o tema, os ícones, o wallpaper e os atalhos do sistema em 2${FIM}" && sleep 1
-echo -e "${AZUL}Alterando o tema, os ícones, o wallpaper e os atalhos do sistema em 3${FIM}" && sleep 1
+echo -e "$AZUL Alterando o tema, os ícones, o wallpaper e os atalhos do sistema em 1" && sleep 1
+echo -e "$AZUL Alterando o tema, os ícones, o wallpaper e os atalhos do sistema em 2" && sleep 1
+echo -e "$AZUL Alterando o tema, os ícones, o wallpaper e os atalhos do sistema em 3" && sleep 1
 
 #Tema e ícones do Gnome
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
@@ -131,7 +127,7 @@ gsettings set org.gnome.desktop.background picture-uri file://$dir/Imagens/Wallp
 
 #Apparmor
 while :; do
-   echo -ne "${VERDE}Você quer instalar o Apparmor?${FIM} ${LVERDE}(S) sim / (N) não ${FIM}"
+   echo -ne "$VERDE Você quer instalar o Apparmor? $LVERDE (S) sim / (N) não "
    read -r resposta
    case "$resposta" in
    s | S | "")
@@ -145,11 +141,11 @@ while :; do
       break
       ;;
    n | N)
-      echo -e "${AZUL}Finalizando a instalação${FIM}"
+      echo -e "$AZUL Finalizando a instalação"
       break
       ;;
    *)
-      echo -e "${RED}Opção inválida${FIM}"
+      echo -e "$RED Opção inválida"
       ;;
    esac
 done
@@ -157,17 +153,17 @@ done
 # Mlocate - necessário para a busca no Ulauncher
 sudo pacman -S --needed mlocate
 sudo updatedb
-echo -e "  ${AZUL}Mlocate habilitado${FIM}"
+echo -e "  $AZUL Mlocate habilitado"
 
 #Mirrorlist atual
-echo -e "${AZUL}Mirrorlist atual${FIM}"
+echo -e "$AZUL Mirrorlist atual"
 cat /etc/pacman.d/mirrorlist
 
 #Reflector
 while :; do
-   echo -ne "${AZUL}
+   echo -ne "$AZUL 
 Você quer executar o reflector para atualizar o mirrorlist?
-Caso não tenha acontecido problemas na instalação dos pacotes não recomendamos a execução.${FIM}  ${LVERDE}(S) sim / (N) não ${FIM}"
+Caso não tenha acontecido problemas na instalação dos pacotes não recomendamos a execução.  $LVERDE (S) sim / (N) não "
    read -r resposta
    case "$resposta" in
    s | S | "")
@@ -178,13 +174,13 @@ Caso não tenha acontecido problemas na instalação dos pacotes não recomendam
       break
       ;;
    n | N)
-      echo -e "${AZUL}Fim da instalação${FIM}"
+      echo -e "$AZUL Fim da instalação"
       break
       ;;
    *)
-      echo -e "${RED}Opção inválida. Responda a pergunta.${FIM}"
+      echo -e "$RED Opção inválida. Responda a pergunta."
       ;;
    esac
 done
 
-printf "${VERDE}Fim! Caso tenha instalado o AppArmor acrescente as instruções do arquivo -paBoot.txt/linha 7- nos parâmetros do boot e depois reinicie o sistema. Se você não instalou o Apparmor apenas proceda com a reinicialização do sistema${FIM}\n"
+printf "%s $VERDE Fim! Caso tenha instalado o AppArmor acrescente as instruções do arquivo -paBoot.txt/linha 7- nos parâmetros do boot e depois reinicie o sistema. Se você não instalou o Apparmor apenas proceda com a reinicialização do sistema.\n"
