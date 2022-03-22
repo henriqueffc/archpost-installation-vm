@@ -47,9 +47,9 @@ $FIM"
 # Habilitar os serviços
 sudo ufw enable
 sudo systemctl enable ufw.service
-echo -e "  $AZUL ufw.service habilitado $FIM"
+echo -e "$AZUL \t ufw.service habilitado $FIM"
 sudo systemctl enable systemd-boot-update
-echo -e "  $AZUL systemd-boot-update habilitado $FIM"
+echo -e "$AZUL \t systemd-boot-update habilitado $FIM"
 
 echo -e "$AZUL
 -------------------------------------------------------------------------
