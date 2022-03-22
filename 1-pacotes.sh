@@ -157,10 +157,10 @@ done
 # Mlocate - necessário para a busca no Ulauncher
 sudo pacman -S --needed mlocate
 sudo updatedb
-echo -e "  $AZUL Mlocate habilitado. $FIM"
+echo -e "$AZUL \t Mlocate habilitado. $FIM"
 
 #Mirrorlist atual
-echo -e "$AZUL Mirrorlist atual. $FIM"
+echo -e "$VERDE Mirrorlist atual. $FIM"
 cat /etc/pacman.d/mirrorlist
 
 #Reflector
