@@ -103,7 +103,7 @@ gsettings set org.gnome.mutter center-new-windows true
 #Desabilitar os cantos ativos
 gsettings set org.gnome.desktop.interface enable-hot-corners false
 
-#Ao pesquisar, não serão exibidos os resultados de aplicativos contidos nesta lista.
+#Ao pesquisar no overview não serão exibidos os resultados da pesquisa realizada pelos aplicativos contidos nesta lista.
 gsettings set org.gnome.desktop.search-providers disabled "['org.gnome.Contacts.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Characters.desktop', 'org.gnome.Photos.desktop', 'org.gnome.clocks.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Epiphany.desktop', 'org.gnome.Software.desktop']"
 
 #Tamanho da fonte do sistema
