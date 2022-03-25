@@ -94,6 +94,28 @@ echo -e "$AZUL Alterando o tema, os ícones, o wallpaper e os atalhos do sistema
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
 
+#Desabilitar o tempo antes da sessão ser considerada ociosa
+gsettings set org.gnome.desktop.session idle-delay "0"
+
+#Abrir os aplicativos centralizados na tela
+gsettings set org.gnome.mutter center-new-windows true
+
+#Desabilitar os cantos ativos
+gsettings set org.gnome.desktop.interface enable-hot-corners false
+
+#Ao pesquisar, não serão exibidos os resultados de aplicativos contidos nesta lista.
+gsettings set org.gnome.desktop.search-providers disabled "['org.gnome.Contacts.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Characters.desktop', 'org.gnome.Photos.desktop', 'org.gnome.clocks.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Epiphany.desktop', 'org.gnome.Software.desktop']"
+
+#Tamanho da fonte do sistema
+gsettings set org.gnome.desktop.interface font-name "Cantarell 12"
+gsettings set org.gnome.desktop.interface document-font-name "Cantarell 12"
+gsettings set org.gnome.desktop.interface monospace-font-name "Source Code Pro 11"
+gsettings set org.gnome.desktop.wm.preferences titlebar-font "Cantarell Bold 12"
+
+#GNOME Software
+gsettings set org.gnome.software download-updates false
+gsettings set org.gnome.software first-run false
+
 #Atalhos do teclado (abnt2 com teclado numérico)
 # abaixar o volume - Ctrl + - teclado numérico
 gsettings set org.gnome.settings-daemon.plugins.media-keys volume-down "['<Primary>KP_Subtract']"
