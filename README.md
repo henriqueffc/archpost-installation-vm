@@ -6,6 +6,8 @@ Eu uso os scripts desse repositório após instalar o Arch Linux usando o script
 
 Os scripts foram concebidos especificamente para a configuração de uma **máquina virtual** conforme o meu uso. 
 
+**Eu instalo o sistema em UEFI, com systemd-boot e com GNOME. As configurações dos scripts são concebidas nessa base.**
+
 Ordem de uso dos scripts:
 
 - initialconfig.sh
