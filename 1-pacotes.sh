@@ -24,7 +24,7 @@ echo -e "$AZUL
 -------------------------------------------------------------------------
   Instalando os pacotes. Digite S (SIM) para todas as requisições 
         feitas pelo sistema nas instalações dos pacotes.
-        (Áudio, programs, fontes e Pipeware/wireplumber)
+        (Áudio, programas, fontes e Pipeware/wireplumber)
 -------------------------------------------------------------------------
 $FIM" && sleep 3
 
