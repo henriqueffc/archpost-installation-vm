@@ -20,11 +20,13 @@ sudo rm -r /archpost-installation-vm
 sudo usermod -aG brlapi "$USERNAME"
 sudo usermod -aG wheel "$USERNAME"
 
-echo -e "$AZUL 
+echo -e "$AZUL
 -------------------------------------------------------------------------
-                          Instalando os pacotes
+  Instalando os pacotes. Digite S (SIM) para todas as requisições 
+        feitas pelo sistema nas instalações dos pacotes.
+        (Áudio, programs, fontes e Pipeware/wireplumber)
 -------------------------------------------------------------------------
-$FIM"
+$FIM" && sleep 3
 
 # Áudio
 sudo pacman --needed -S - <./pacotes/pkg-audio.txt
