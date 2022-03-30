@@ -2,7 +2,7 @@
 
 Configuração para **máquina virtual**.
 
-Eu uso os scripts desse repositório após instalar o Arch Linux usando o script de instalação *archinstall* fornecido pela [ISO](https://archlinux.org/download/) oficial do Arch em uma máquina virtual.
+Eu uso os scripts desse repositório após instalar o Arch Linux usando o script de instalação *archinstall* fornecido pela [ISO](https://archlinux.org/download/) oficial em uma máquina virtual.
 
 Os scripts foram concebidos especificamente para a configuração de uma **máquina virtual** conforme o meu uso. 
 
