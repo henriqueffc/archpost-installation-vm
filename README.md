@@ -6,7 +6,7 @@ Eu uso os scripts desse repositório após instalar o Arch Linux usando o script
 
 Os scripts foram concebidos especificamente para a configuração de uma **máquina virtual** conforme o meu uso para testes do sistema. 
 
-**Eu instalo o sistema em UEFI, com systemd-boot, pipewire e com GNOME. As configurações dos scripts são concebidas nessa base.**
+**Eu instalo o sistema em UEFI, com systemd-boot, pipewire, ZRAM e com GNOME 42. As configurações dos scripts são concebidas nessa base.**
 
 Ordem de uso dos scripts:
 
