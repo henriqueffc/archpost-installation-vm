@@ -94,13 +94,13 @@ echo -e "$AZUL Alterando o tema, os ícones, o wallpaper e os atalhos do sistema
 echo -e "$AZUL Alterando o tema, os ícones, o wallpaper e os atalhos do sistema em 3 $FIM" && sleep 1
 
 #Tema do sistema GNOME 42
-#gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 #Tema para os aplicativos legados GNOME 42
-#gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
-
-#Tema e ícones do Gnome
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
-gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+
+#Tema e ícones do Gnome 41
+#gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+#gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
 
 #Desabilitar o tempo antes da sessão ser considerada ociosa
 gsettings set org.gnome.desktop.session idle-delay "0"
@@ -157,7 +157,10 @@ mkdir "$HOME"/Imagens/Wallpaper
 sudo cp ./wallpapers/*.* ~/Imagens/Wallpaper
 sed -i 's|/home/user1|'$HOME'|g' ~/Imagens/Wallpaper/dynamic_wallpaper.xml
 dir=$HOME
+#Light
 gsettings set org.gnome.desktop.background picture-uri file://$dir/Imagens/Wallpaper/dynamic_wallpaper.xml
+#Dark
+gsettings set org.gnome.desktop.background picture-uri-dark file://$dir/Imagens/Wallpaper/dynamic_wallpaper.xml
 
 #Apparmor
 while :; do
