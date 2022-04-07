@@ -105,6 +105,10 @@ gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 #Desabilitar o tempo antes da sessão ser considerada ociosa
 gsettings set org.gnome.desktop.session idle-delay "0"
 
+#Suspensão automática - Desabilitada quando conectado a energia e na bateria
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type nothing
+
 #Abrir os aplicativos centralizados na tela
 gsettings set org.gnome.mutter center-new-windows true
 
