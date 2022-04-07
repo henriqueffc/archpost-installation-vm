@@ -13,7 +13,6 @@ exa
 firefox
 flatpak
 git
-gnome-icon-theme-symbolic
 gparted
 gufw
 kdegraphics-mobipocket
