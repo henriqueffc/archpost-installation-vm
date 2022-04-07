@@ -5,6 +5,7 @@ bat
 cmatrix
 coreutils
 curl
+dconf-editor
 dialog
 discount
 djvulibre
