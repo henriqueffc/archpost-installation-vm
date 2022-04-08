@@ -15,6 +15,7 @@ firefox
 flatpak
 git
 gparted
+gnome-themes-extra
 gufw
 kdegraphics-mobipocket
 kvantum
@@ -22,7 +23,6 @@ libappindicator-gtk3
 libzip
 man-db
 man-pages
-materia-gtk-theme
 neofetch
 ntfs-3g
 okular
