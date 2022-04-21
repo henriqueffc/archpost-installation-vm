@@ -31,6 +31,6 @@ echo -e "$AZUL
 $FIM"
 
 # Pacotes AUR
-yay --needed -S - <./pacotes/aur.txt
+yay -S - <./pacotes/aur.txt
 
 printf "%s $VERDE Fim! Reinicie o sistema. $FIM \n"
