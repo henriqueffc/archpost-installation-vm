@@ -98,9 +98,8 @@ gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 #Tema para os aplicativos legados GNOME 42
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 
-#Tema e ícones do Gnome 41
-#gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
-#gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+#Tema dos ícones 
+gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
 
 #Desabilitar o tempo antes da sessão ser considerada ociosa
 gsettings set org.gnome.desktop.session idle-delay "0"
