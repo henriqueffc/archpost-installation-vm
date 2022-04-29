@@ -53,8 +53,6 @@ sudo ufw enable
 echo -e "$AZUL \t ufw.service habilitado $FIM"
 sudo systemctl enable systemd-boot-update
 echo -e "$AZUL \t systemd-boot-update habilitado $FIM"
-sudo systemctl enable paccache.timer
-echo -e "$AZUL \t paccache.timer habilitado $FIM"
 
 echo -e "$AZUL
 -------------------------------------------------------------------------
