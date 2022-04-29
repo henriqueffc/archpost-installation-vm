@@ -223,4 +223,8 @@ Caso não tenha acontecido problemas na instalação dos pacotes não recomendam
    esac
 done
 
+# Pacman hooks
+sudo mkdir /etc/pacman.d/hooks
+sudo cp ./hooks/*.hook /etc/pacman.d/hooks/
+
 printf "%s $VERDE Fim! Caso tenha instalado o AppArmor acrescente as instruções do arquivo -paBoot.txt/linha 7- nos parâmetros do boot e depois reinicie o sistema. Se você não instalou o Apparmor apenas proceda com a reinicialização do sistema. $FIM \n"
