@@ -51,7 +51,7 @@ while :; do
     case "$resposta" in
     s | S | "")
         sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-	      break
+	break
         ;;
     n | N)
         echo -e "$AZUL Continuando a instalação. $FIM"
