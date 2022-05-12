@@ -41,6 +41,8 @@ unrar
 unzip
 wmctrl
 xdg-desktop-portal
+xdg-desktop-portal-gnome
+xdg-desktop-portal-gtk
 xorg-xdpyinfo
 xorg-xkill
 zip
