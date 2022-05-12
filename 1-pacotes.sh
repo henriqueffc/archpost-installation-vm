@@ -32,7 +32,7 @@ $FIM" && sleep 3
 # Pipewire
 sudo pacman --needed -S - <./pacotes/pipewire.txt
 
-# Áudio
+# Áudio - Codecs
 sudo pacman --needed -S - <./pacotes/pkg-audio.txt
 
 # Outros
