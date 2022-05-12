@@ -29,6 +29,9 @@ echo -e "$AZUL
 -------------------------------------------------------------------------
 $FIM" && sleep 3
 
+# Pipeware
+sudo pacman --needed -S - <./pacotes/pipeware.txt
+
 # Áudio
 sudo pacman --needed -S - <./pacotes/pkg-audio.txt
 
@@ -37,9 +40,6 @@ sudo pacman --needed -S - <./pacotes/pkg.txt
 
 # Fontes
 sudo pacman --needed -S - <./pacotes/fontes.txt
-
-# Pipeware
-sudo pacman --needed -S - <./pacotes/pipeware.txt
 
 echo -e "$AZUL
 -------------------------------------------------------------------------
