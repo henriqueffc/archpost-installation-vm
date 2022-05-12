@@ -40,6 +40,7 @@ unrar
 unrar
 unzip
 wmctrl
+xdg-desktop-portal
 xorg-xdpyinfo
 xorg-xkill
 zip
