@@ -23,7 +23,7 @@ sudo usermod -aG wheel "$USERNAME"
 echo -e "$AZUL
 -------------------------------------------------------------------------
   Instalando os pacotes para Áudio, programas, fontes 
-  e Pipeware/wireplumber. Digite S (SIM) para todas as
+  e Pipewire/wireplumber. Digite S (SIM) para todas as
   requisições feitas pelo sistema para as instalações
   desses pacotes.
 -------------------------------------------------------------------------
