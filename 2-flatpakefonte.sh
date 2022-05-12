@@ -21,7 +21,6 @@ $FIM"
 
 # Flatpak Aplicativos
 flatpak install flathub com.github.rajsolai.textsnatcher -y
-flatpak install flathub io.github.wereturtle.ghostwriter -y
 flatpak install flathub com.github.tchx84.Flatseal -y
 flatpak install flathub com.mattjakeman.ExtensionManager -y
 flatpak install flathub org.gtk.Gtk3theme.Adwaita-dark -y
