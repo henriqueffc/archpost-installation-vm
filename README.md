@@ -1,5 +1,12 @@
 # archpost-installation-vm
 
+<p align="left">
+    <a href="https://github.com/henriqueffc/archpost-installation-vm/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/henriqueffc/archpost-installation-vm?style=flat-square" alt="License MIT">
+    </a>
+      <img src="https://img.shields.io/github/last-commit/henriqueffc/archpost-installation-vm?style=flat-square" alt="Last commit">
+</p>
+
 Configuração para **máquina virtual**.
 
 Eu uso os scripts desse repositório **após** instalar o Arch Linux usando o script de instalação [*archinstall*](https://github.com/archlinux/archinstall) fornecido pela [ISO](https://archlinux.org/download/) oficial em uma máquina virtual.
