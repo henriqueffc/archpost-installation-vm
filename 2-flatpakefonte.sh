@@ -62,3 +62,14 @@ font=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'")
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$font/ use-system-font false
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$font/ font 'MesloLGS NF 12'
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$font/ visible-name 'Padrão'
+
+echo -e "$AZUL
+-------------------------------------------------------------------------
+                 Instalando o tema do Midnight Commander
+-------------------------------------------------------------------------
+$FIM"
+
+aria2c https://raw.githubusercontent.com/dracula/midnight-commander/master/skins/dracula256.ini
+mkdir -p ~/.local/share/mc/skins
+mv dracula256.ini ~/.local/share/mc/skins
+sed -i 's/marked = rgb253;color0/\marked = color0;rgb253/' ~/.local/share/mc/skins/dracula256.ini
