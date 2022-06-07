@@ -22,7 +22,7 @@ FIM='\e[0m'
 
 # Idioma e hostname (configuração disponível no script Archinstall)
 #echo 'LANG=pt_BR.UTF-8' >/etc/locale.conf
-#echo "nome_do_Host" > /etc/hostname 
+#echo 'archlinux' > /etc/hostname 
 
 #Localhost
 line=$(cat /etc/hostname)
@@ -65,6 +65,9 @@ while :; do
     esac
 done
 
+#Firefox
+echo 'MOZ_ENABLE_WAYLAND=1' >>/etc/environment
+
 # NANO - Line number e syntax-highlighting
 sed -i 's/# set linenumbers/\set linenumbers/' /etc/nanorc
 linenumber=$(cat /etc/nanorc | grep -n '*.nanorc' | gawk '{print $1}' FS=":")
@@ -103,4 +106,4 @@ done
 
 pacman -Syy --noconfirm
 
-printf "%s $VERDE Fim! Escreva exit, pressione enter e reinicie com o comando reboot. $FIM \n"
+printf "%s $VERDE Fim! Reinicie com o comando reboot. $FIM \n"
