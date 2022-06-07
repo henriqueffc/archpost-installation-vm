@@ -13,7 +13,7 @@ Os scripts foram concebidos especificamente para a configuração de uma **máqu
 
 **Eu instalo o sistema em UEFI, com systemd-boot, pipewire, wireplumber, ZRAM e GNOME 42. As configurações dos scripts são concebidas nessa base.**
 
-Os scripts deverão ser executados após a inicialização do sistema no ambiente gráfico.
+Os scripts deverão ser executados após a inicialização do sistema virtualizado no ambiente gráfico.
 
 Caso o git não esteja instalado no sistema, execute:
 
