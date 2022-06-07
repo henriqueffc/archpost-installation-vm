@@ -13,16 +13,18 @@ RED='\e[1;31m'
 LVERDE='\e[0;92m'
 FIM='\e[0m'
 
-# Locale.gen
-sed -i 's/#pt_BR.UTF-8 UTF-8/\pt_BR.UTF-8 UTF-8/' /etc/locale.gen
-locale-gen
+# Locale.gen (configuração disponível no script Archinstall)
+#sed -i 's/#pt_BR.UTF-8 UTF-8/\pt_BR.UTF-8 UTF-8/' /etc/locale.gen
+#locale-gen
 
-# Vconsole.conf (Já foi configurado pelo Archinstall)
+# Vconsole.conf (configuração disponível no script Archinstall)
 # echo "KEYMAP=br-abnt2" > /etc/vconsole.conf
 
-# Idioma, hostname e localhost
-echo 'LANG=pt_BR.UTF-8' >/etc/locale.conf
-#echo "nome_do_Host" > /etc/hostname (já foi feito pelo Archinstall.)
+# Idioma e hostname (configuração disponível no script Archinstall)
+#echo 'LANG=pt_BR.UTF-8' >/etc/locale.conf
+#echo "nome_do_Host" > /etc/hostname 
+
+#Localhost
 line=$(cat /etc/hostname)
 echo '127.0.0.1 localhost' >>/etc/hosts
 echo '::1       localhost' >>/etc/hosts
@@ -99,6 +101,6 @@ while :; do
      esac
 done
 
-pacman -Syy --noconfirm --needed
+pacman -Syy --noconfirm
 
 printf "%s $VERDE Fim! Escreva exit, pressione enter e reinicie com o comando reboot. $FIM \n"
