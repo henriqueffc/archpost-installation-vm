@@ -11,7 +11,7 @@ Eu uso os scripts desse repositório **somente após** instalar o Arch Linux usa
 
 Os scripts foram concebidos especificamente para a configuração de uma **máquina virtual** conforme o meu uso para testes do sistema.
 
-**Eu instalo o sistema em UEFI, com systemd-boot, pipewire, wireplumber, ZRAM e GNOME 42. As configurações dos scripts são concebidas nessa base.**
+**Eu instalo o sistema em UEFI, com systemd-boot, sistema de arquivos EXT4, pipewire, wireplumber, ZRAM e GNOME 42. As configurações dos scripts são concebidas nessa base.**
 
 Os scripts deverão ser executados após a inicialização do sistema virtualizado no ambiente gráfico.
 
