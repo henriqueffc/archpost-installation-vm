@@ -18,11 +18,11 @@ FIM='\e[0m'
 #locale-gen
 
 # Vconsole.conf (configuração disponível no script Archinstall)
-# echo "KEYMAP=br-abnt2" > /etc/vconsole.conf
+# echo 'KEYMAP=br-abnt2' >/etc/vconsole.conf
 
 # Idioma e hostname (configuração disponível no script Archinstall)
 #echo 'LANG=pt_BR.UTF-8' >/etc/locale.conf
-#echo 'archlinux' > /etc/hostname 
+#echo 'archlinux' >/etc/hostname 
 
 #Localhost
 line=$(cat /etc/hostname)
@@ -36,7 +36,7 @@ echo '# Defaults specification' >>/etc/sudoers
 echo 'Defaults editor=/usr/bin/nano' >>/etc/sudoers
 
 # Caso queira o vim ao invés do nano, comente (#) a linha acima e descomente a linha abaixo.
-# echo "Defaults editor=/usr/bin/vim" >> /etc/sudoers
+# echo 'Defaults editor=/usr/bin/vim' >>/etc/sudoers
 
 # Pacman.conf
 cp /etc/pacman.conf /etc/pacman.conf.bak
