@@ -21,7 +21,7 @@ Caso o git não esteja instalado no sistema, execute:
 
 Para usar os scripts clone o repositório e acesse a pasta:
 
-`git clone http://github.com/henriqueffc/archpost-installation-vm`
+`git clone http://github.com/henriqueffc/archpost-installation-vm`<br>
 `cd archpost-installation-vm`
 
 É necessário dar permissão de execução para os arquivos .sh
