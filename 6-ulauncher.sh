@@ -50,7 +50,7 @@ git clone https://github.com/dalanicolai/gnome-tracker-extension ~/.local/share/
 git clone https://github.com/fisadev/ulauncher-better-file-browser ~/.local/share/ulauncher/extensions/ulauncher-better-file-browser
 git clone https://github.com/Doekeb/ulauncher-gnome-calculator ~/.local/share/ulauncher/extensions/ulauncher-gnome-calculator
 git clone https://github.com/isacikgoz/ukill ~/.local/share/ulauncher/extensions/ukill
-git clone https://ext.ulauncher.io/-/github-friday-ulauncher-clipboard ~/.local/share/ulauncher/extensions/github-friday-ulauncher-clipboard
-git clone https://ext.ulauncher.io/-/github-kuenzelit-ulauncher-firefox-bookmarks ~/.local/share/ulauncher/extensions/github-kuenzelit-ulauncher-firefox-bookmarks
+git clone https://github.com/friday/ulauncher-clipboard ~/.local/share/ulauncher/extensions/github-friday-ulauncher-clipboard
+git clone https://github.com/KuenzelIT/ulauncher-firefox-bookmarks ~/.local/share/ulauncher/extensions/github-kuenzelit-ulauncher-firefox-bookmarks
 
 printf "%s $VERDE Fim! O atalho para o Ulauncher foi defino no script 2-pacote.sh (Super + \). REINICIE o computador para que as mudanças sejam aplicadas no Ulauncher $FIM \n"
