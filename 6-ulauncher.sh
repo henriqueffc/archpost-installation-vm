@@ -55,4 +55,4 @@ git clone https://github.com/isacikgoz/ukill ~/.local/share/ulauncher/extensions
 git clone https://ext.ulauncher.io/-/github-friday-ulauncher-clipboard ~/.local/share/ulauncher/extensions
 git clone https://ext.ulauncher.io/-/github-kuenzelit-ulauncher-firefox-bookmarks ~/.local/share/ulauncher/extensions
 
-printf "%s $VERDE Fim! O atalho para o Ulauncher foi defino no script 2-pacote.sh (Super + \). REINICIE o computador para que as mudanças sejam aplicadas no Ulauncher $FIM \n" && sleep 6
+printf "%s $VERDE Fim! O atalho para o Ulauncher foi defino no script 2-pacote.sh (Super + \). REINICIE o computador para que as mudanças sejam aplicadas no Ulauncher $FIM \n" && sleep 2
