@@ -53,15 +53,17 @@ echo -e "$AZUL
 -------------------------------------------------------------------------
 $FIM"
 
-echo -e "$AZUL Alterando a fonte do terminal em 1 $FIM" && sleep 1
-echo -e "$AZUL Alterando a fonte do terminal em 2 $FIM" && sleep 1
-echo -e "$AZUL Alterando a fonte do terminal em 3 $FIM" && sleep 1
+echo -e "$AZUL Alterando a fonte e o tamanho do terminal em 1 $FIM" && sleep 1
+echo -e "$AZUL Alterando a fonte e o tamanho do terminal em 2 $FIM" && sleep 1
+echo -e "$AZUL Alterando a fonte e o tamanho do terminal em 3 $FIM" && sleep 1
 
 #Fonte do terminal
 font=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'")
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$font/ use-system-font false
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$font/ font 'MesloLGS NF 12'
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$font/ font 'MesloLGS NF 14'
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$font/ visible-name 'Padrão'
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$font/ default-size-columns '106'
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$font/ default-size-rows '26'
 
 echo -e "$AZUL
 -------------------------------------------------------------------------
