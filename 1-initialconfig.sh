@@ -106,4 +106,8 @@ done
 
 pacman -Syy --noconfirm
 
+#FSTAB
+sudo cp /etc/fstab ~/
+sudo sed -i 's/relatime/noatime/' /etc/fstab
+
 printf "%s $VERDE Fim! Reinicie com o comando reboot. $FIM \n"
