@@ -213,4 +213,4 @@ sudo cp ./hooks/*.hook /etc/pacman.d/hooks/
 cp /boot/loader/entries/*.conf ~/
 sudo sed -i '$ { s/^.*$/& lsm=landlock,lockdown,yama,apparmor,bpf/ }' /boot/loader/entries/*.conf
 
-printf "%s $VERDE Fim! Caso tenha instalado o AppArmor acrescente as instruções do arquivo -paBoot.txt/linha 7- nos parâmetros do boot e depois reinicie o sistema. Se você não instalou o Apparmor apenas proceda com a reinicialização do sistema. $FIM \n"
+printf "%s $VERDE Fim! Reinicie o sistema. $FIM \n"
