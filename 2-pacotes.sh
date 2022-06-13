@@ -58,7 +58,7 @@ echo -e "$AZUL
 $FIM"
 
 #Fontes
-wget -i ./urls/urls.txt -P 
+wget -i ./urls/urls.txt -P ~/Downloads
 sudo mkdir -p /usr/local/share/fonts
 tar -xf ./pacotes/fonts.tar.xz -C ~/Downloads
 sudo mv ~/Downloads/*.ttf /usr/local/share/fonts
