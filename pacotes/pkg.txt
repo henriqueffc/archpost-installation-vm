@@ -15,6 +15,7 @@ firefox
 flatpak
 git
 gparted
+gnome-appfolders-manager
 gnome-themes-extra
 gufw
 kdegraphics-mobipocket
