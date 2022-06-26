@@ -40,6 +40,7 @@ ufw
 unrar
 unrar
 unzip
+webp-pixbuf-loader
 wmctrl
 xdg-desktop-portal
 xdg-desktop-portal-gnome
