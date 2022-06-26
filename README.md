@@ -32,10 +32,11 @@ Ordem de uso dos scripts:
 
 - 1-initialconfig.sh (esse script deve ser executado com o comando sudo - `sudo ./initialconfig.sh`)
 - 2-pacotes.sh
-- 3-flatpakefonte.sh
+- 3-flatpak-e-fonte.sh
 - 4-yay.sh
-- 5-grid.sh
-- 6-ulauncher.sh
-- 7-zsh-ohmyzsh.sh
+- 5-ulauncher.sh
+- 6-grid.sh
+- 7-extensions.sh
+- 8-zsh-ohmyzsh.sh
 
 Recomendo reinicializar o sistema após a execução de cada script.
