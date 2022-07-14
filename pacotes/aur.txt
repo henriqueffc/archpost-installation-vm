@@ -1,4 +1,3 @@
 downgrade
 inxi
-qgnomeplatform
 ulauncher
