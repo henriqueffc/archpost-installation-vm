@@ -1,6 +1,7 @@
 alacarte
 aria2
 bash-completion
+breeze
 bat
 cmatrix
 coreutils
