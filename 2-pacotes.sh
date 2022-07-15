@@ -99,7 +99,7 @@ gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 
 #Tema dos ícones 
-#gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
 
 #Desabilitar o tempo antes da sessão ser considerada ociosa
 gsettings set org.gnome.desktop.session idle-delay "0"
