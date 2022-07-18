@@ -38,5 +38,6 @@ Ordem de uso dos scripts:
 - 6-grid.sh
 - 7-extensions.sh
 - 8-zsh-ohmyzsh.sh
+- 9-distrobox-ubuntu.sh
 
 Recomendo reinicializar o sistema após a execução de cada script.
