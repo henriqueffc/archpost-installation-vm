@@ -13,17 +13,6 @@ RED='\e[1;31m'
 LVERDE='\e[0;92m'
 FIM='\e[0m'
 
-# Locale.gen (configuração disponível no script Archinstall)
-#sed -i 's/#pt_BR.UTF-8 UTF-8/\pt_BR.UTF-8 UTF-8/' /etc/locale.gen
-#locale-gen
-
-# Vconsole.conf (configuração disponível no script Archinstall)
-# echo 'KEYMAP=br-abnt2' >/etc/vconsole.conf
-
-# Idioma e hostname (configuração disponível no script Archinstall)
-#echo 'LANG=pt_BR.UTF-8' >/etc/locale.conf
-#echo 'archlinux' >/etc/hostname 
-
 #Localhost
 line=$(cat /etc/hostname)
 echo '127.0.0.1 localhost' >>/etc/hosts
