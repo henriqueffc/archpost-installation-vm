@@ -156,16 +156,6 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
 
-#Wallpaper dinâmico
-mkdir "$HOME"/Imagens/Wallpaper
-sudo cp ./wallpapers/*.* ~/Imagens/Wallpaper
-sed -i 's|/home/user1|'$HOME'|g' ~/Imagens/Wallpaper/dynamic_wallpaper.xml
-dir=$HOME
-#Light
-gsettings set org.gnome.desktop.background picture-uri file://$dir/Imagens/Wallpaper/dynamic_wallpaper.xml
-#Dark
-gsettings set org.gnome.desktop.background picture-uri-dark file://$dir/Imagens/Wallpaper/dynamic_wallpaper.xml
-
 #Apparmor
 sudo pacman -S --needed apparmor python-notify2 python-psutil
 sudo systemctl enable apparmor.service
@@ -179,34 +169,6 @@ sudo chown $USER:$USER ~/.config/autostart
 sudo pacman -S --needed mlocate
 sudo updatedb
 echo -e "$AZUL \t Mlocate habilitado. $FIM"
-
-#Mirrorlist atual
-echo -e "$VERDE Mirrorlist atual. $FIM"
-cat /etc/pacman.d/mirrorlist
-
-#Reflector
-while :; do
-   echo -ne "$VERDE 
-Você quer executar o reflector para atualizar o mirrorlist?
-Caso não tenha acontecido problemas na instalação dos pacotes não recomendamos a execução. $FIM $LVERDE (S) sim / (N) não $FIM"
-   read -r resposta
-   case "$resposta" in
-   s | S | "")
-      sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak2
-      sudo pacman -S --needed --noconfirm reflector rsync
-      sudo reflector -c Brazil -a 12 --sort rate --save /etc/pacman.d/mirrorlist
-      sudo pacman -Syyu
-      break
-      ;;
-   n | N)
-      echo -e "$AZUL Fim da instalação. $FIM"
-      break
-      ;;
-   *)
-      echo -e "$RED Opção inválida. Responda a pergunta. $FIM"
-      ;;
-   esac
-done
 
 # Pacman hooks
 sudo mkdir /etc/pacman.d/hooks
